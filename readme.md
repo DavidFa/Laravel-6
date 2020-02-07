@@ -38,3 +38,9 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## API Route
+composer require laravel/passport
+php artisan passport:install
+// migrate oauth tables -- oauth_access_tokens, oauth_auth_codes, oauth_clients, oauth_personal_access_clients, oauth_refresh_tokens
+php artisan migrate
