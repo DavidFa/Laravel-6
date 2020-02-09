@@ -13,13 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/aaa', function (Request $request) {
-    return "fdfsdfd";
-});
+Route::middleware('auth:api')->get('/user', 'UserController@getUser');
 
-Route::post('login', 'API\UserController@login');
-Route::post('register', 'API\UserController@register');
+//Route::post('login', 'API\UserController@login');
+//Route::post('register', 'API\UserController@register');
 
 //Route::group(['middleware' => 'auth:api'], function (Request $request) {
-//    Route::get('/home', 'HomeController@index')->name('home');
+//    Route::get('/aaa', 'HomeController@index')->name('home');
 //});

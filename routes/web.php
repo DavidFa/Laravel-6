@@ -11,17 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@welcome');
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => ['auth', 'permission']], function() {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/user', 'UserController@getUser');
 });
 
+//Route::middleware(['web'])->group(function() {
+//    Route::get('/user', function (Request $request) {
+//        return Auth::user();
+//    });
+//});
 
-Route::get('/user', function (Request $request) {
-    return Auth::user();
-});
+
+//Route::group(['middleware' => ['web']], function () {
+//    Route::get('/user', function (Request $request) {
+//        return Auth::user();
+//    });
+//});
+
+
